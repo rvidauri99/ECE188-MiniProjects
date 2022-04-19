@@ -3,32 +3,34 @@
     <link rel="stylesheet" href="style.css">
     <script defer src="index.js" charset="utf-8"></script>
 
-    <div>
-        <body>
-            <table>
-                <tr>
-                    <td colspan="3">
-                        <button type="submit" name="left" onclick="left_button()"><-</button>
-                        <button type="submit" name="right" onclick="right_button()">-></button>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="letters" id="prev"></td>
-                    <td><button class="letter" type="submit" id="letter" onclick="select_letter()"></button></td>
-                    <td class="letters" id="next"></td>
-                </tr>
-                <tr>
-                    <td><button class="lower" type="submit" name="uppercase" onclick="uppercase_button()">^</button></td>
-                    <td><button class="lower" type="submit" name="space" onclick="add_space()">_</button></td>
-                    <td><button class="lower" type="submit" name="delete" onclick="delete_char()">del</button></td>
-                </tr>
-            </table>
-        </body>
-    </div>
-    <div>
-        <body>
-            <p id="sentence"></p>
-        </body>
-    </div>
-    
+    <body>
+        <p>
+            Click left and right arrows to move letter<br>
+            Click ^ for uppercase. Click again to go back to lowercase<br>
+            Click _ to add space<br>
+            Click del to delete last added character<br>
+            Click letter in gray box to select it
+        </p>
+        
+        <table>
+            <tr>
+                <td colspan="3">
+                    <button type="submit" name="left" onclick="left_button()"><-</button>
+                    <button type="submit" name="right" onclick="right_button()">-></button>
+                </td>
+            </tr>
+            <tr>
+                <td class="letters" id="prev"></td>
+                <td><button class="letter" type="submit" id="letter" onclick="select_letter()"></button></td>
+                <td class="letters" id="next"></td>
+            </tr>
+            <tr>
+                <td><button class="lower" type="submit" name="uppercase" onclick="uppercase_button()">^</button></td>
+                <td><button class="lower" type="submit" name="space" onclick="add_space()">_</button></td>
+                <td><button class="lower" type="submit" name="delete" onclick="delete_char()">del</button></td>
+            </tr>
+        </table>
+        
+        <p id="sentence"></p>
+    </body>
 </html>
