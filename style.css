@@ -6,6 +6,23 @@ table {
     width: 2cm;
     height: 2cm;
     border-spacing: 0px 0px;
+    padding: 0px;
+}
+canvas {
+    border: 1px solid;
+    position: relative;
+    /* width: 75.6px;
+    height: 75.6px; */
+    width: 2cm;
+    height: 1.5cm;
+    max-width: 2cm;
+}
+div {
+    border: 1px solid;
+    width: 2cm;
+    height: 2cm;
+    padding: 0px;
+    max-width: 2cm;
 }
 td {
     text-align: center;
@@ -14,10 +31,15 @@ button.letter {
     border: none;
     background-color: silver;
 }
-button.lower {
+button.btn {
     width: 100%;
     text-align: center;
     padding: 0px;
+}
+button.E {
+    position: relative;
+    width: 100%;
+    max-width: 2cm;
 }
 td.letters{
     font-size: small;

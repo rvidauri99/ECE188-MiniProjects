@@ -1,16 +1,22 @@
 var letter = document.getElementById("letter");
 var prev = document.getElementById("prev");
 var next = document.getElementById("next");
-letter.innerHTML = 'a';
-prev.innerHTML = 'z';
-next.innerHTML = 'b';
+if(letter != null) letter.innerHTML = 'a';
+if(prev != null) prev.innerHTML = 'z';
+if(next != null) next.innerHTML = 'b';
+var isUpper = false;
 
 var sentence = document.getElementById("sentence");
 sentence.innerHTML = "";
 
-var isUpper = false;
+function reload(){
+    letter = document.getElementById("letter");
+    prev = document.getElementById("prev");
+    next = document.getElementById("next");
+}
 
 function left_button(){
+    reload();
     var c = letter.innerHTML;
     if(c == 'a' || c == 'A'){
         letter.innerHTML = (c == 'a') ? 'z' : 'Z';
@@ -30,6 +36,7 @@ function left_button(){
 }
 
 function right_button(){
+    reload();
     var c = letter.innerHTML;
     if(c == 'z' || c == 'Z'){
         letter.innerHTML = (c == 'z') ? 'a' : 'A';
@@ -49,6 +56,7 @@ function right_button(){
 }
 
 function uppercase_button(){
+    reload();
     if(isUpper){
         letter.innerHTML = letter.innerHTML.charAt(0).toLowerCase();
         next.innerHTML = next.innerHTML.charAt(0).toLowerCase();
@@ -63,6 +71,7 @@ function uppercase_button(){
 }
 
 function select_letter(){
+    reload();
     sentence.innerHTML += letter.innerHTML;
 }
 
@@ -75,3 +84,5 @@ function delete_char(){
         sentence.innerHTML = sentence.innerHTML.slice(0, -1);
     }
 }
+
+// https://daily-dev-tips.com/posts/javascript-mouse-drawing-on-the-canvas/#canvas-mouse-draw-with-javascript
