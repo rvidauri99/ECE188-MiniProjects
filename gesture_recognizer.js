@@ -149,7 +149,6 @@ function DollarRecognizer() // constructor
 			else
 				d = DistanceAtBestAngle(candidate.Points, this.Unistrokes[i], -AngleRange, +AngleRange, AnglePrecision); // Golden Section Search (original $1)
 			if (d < b) {
-				console.log(i);
 				b = d; // best (least) distance
 				u = i; // unistroke index
 			}
