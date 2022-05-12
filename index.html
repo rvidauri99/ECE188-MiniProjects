@@ -1,27 +1,82 @@
 <!DOCTYPE html>
 <html>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
-    <script defer src="index.js" charset="utf-8"></script>
-    <script defer src="gesture_recognizer.js" charset="utf-8"></script>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
+        <script defer src="index.js" charset="utf-8"></script>
+        <script defer src="gesture_recognizer.js" charset="utf-8"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+        <script defer src="hand_recognizer.js" charset="utf-8"></script>
+    </head>
 
     <body onload="onLoadEvent()">
-        <p>
+        <!-- <p>
             Click left and right arrows to move letter<br>
             Click ^ for uppercase. Click again to go back to lowercase<br>
             Click _ to add space<br>
             Click del to delete last added character<br>
             Click letter in gray box to select it
-        </p>
+        </p> -->
 
-        <div>
-            <button class="btn" type="submit" name="emoji" onclick="changeScene()">E</button>
-            <canvas id="canvas"
+        <div class="emoji">
+            <button class="E" type="submit" onclick="changeScene()">E</button>
+            <button class="H" type="submit" onclick="captureHand()">H</button>
+            <canvas class="emoji" id="canvas"
                 onmousedown="mouseDownEvent(event.clientX, event.clientY, event)"
                 onmousemove="mouseMoveEvent(event.clientX, event.clientY, event)"
                 onmouseup="mouseUpEvent(event.clientX, event.clientY, event)"></canvas>
         </div>
         
         <p id="sentence"></p>
+
+        <div>
+            <!-- <video id="video"></video> -->
+            <canvas id="hands" width="1280px" height="720px"></canvas>
+        </div>
     </body>
 </html>
+
+<!-- <script>
+    const video = document.getElementById('video');
+    //const video = document.createElement("video");
+    const canvasElement = document.getElementById('hands');
+    const canvasCtx = canvasElement.getContext('2d');
+
+    function onResults(results) {
+        canvasCtx.save();
+        canvasCtx.clearRect(0, 0, canvasElement.width, canvasElement.height);
+        canvasCtx.drawImage(results.image, 0, 0, canvasElement.width, canvasElement.height);
+        
+        if (results.multiHandLandmarks) {
+            for (const landmarks of results.multiHandLandmarks) {
+                drawConnectors(canvasCtx, landmarks, HAND_CONNECTIONS, {color: '#00FF00', lineWidth: 5});
+                drawLandmarks(canvasCtx, landmarks, {color: '#FF0000', lineWidth: 2});
+            }
+        }
+        canvasCtx.restore();
+    }
+
+    const hands = new Hands({locateFile: (file) => {
+        return `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}`;
+    }});
+    hands.setOptions({
+        maxNumHands: 2,
+        modelComplexity: 1,
+        minDetectionConfidence: 0.5,
+        minTrackingConfidence: 0.5
+    });
+    hands.onResults(onResults);
+
+    const camera = new Camera(video, {
+        onFrame: async () => {
+            await hands.send({image: video});
+        },
+        width: 1280,
+        height: 720
+    });
+
+    camera.start();
+</script> -->

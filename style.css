@@ -8,7 +8,7 @@ table {
     border-spacing: 0px 0px;
     padding: 0px;
 }
-canvas {
+canvas.emoji {
     border: 1px solid;
     position: relative;
     /* width: 75.6px;
@@ -17,12 +17,13 @@ canvas {
     height: 1.5cm;
     max-width: 2cm;
 }
-div {
+div.emoji {
     border: 1px solid;
     width: 2cm;
     height: 2cm;
     padding: 0px;
     max-width: 2cm;
+    position: relative;
 }
 td {
     text-align: center;
@@ -36,10 +37,23 @@ button.btn {
     text-align: center;
     padding: 0px;
 }
-button.E {
+/* button.E {
     position: relative;
     width: 100%;
     max-width: 2cm;
+} */
+button.E {
+    width: 50%;
+    text-align: center;
+    padding: 0px;
+}
+button.H {
+    width: 50%;
+    text-align: center;
+    padding: 0px;
+    top: 0px;
+    right: 0px;
+    position: absolute;
 }
 td.letters{
     font-size: small;
